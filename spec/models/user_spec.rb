@@ -8,6 +8,10 @@ RSpec.describe User, type: :model do
     end
   end
 
+  describe 'Relations' do
+    it { is_expected.to have_many :performance_data}
+  end
+
   describe 'Database table' do
     it { is_expected.to have_db_column :id }
     it { is_expected.to have_db_column :provider }
