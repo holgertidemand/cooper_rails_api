@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :performance_datum, class: 'PerformanceData' do
-    user nil
-    data ""
+    user 'email@email.com'
+    data { message: 'Average' }
   end
 end
