@@ -1,6 +1,5 @@
 RSpec.describe Api::V1::PerformanceDataController, type: :request do
   let(:user) { FactoryBot.create(:user) }
-  let(:user_two) { FactoryBot.create(:user, email: 'Emailtwo@email.com')}
   let(:credentials) { user.create_new_auth_token }
   let(:headers) { { HTTP_ACCEPT: 'application/json' }.merge!(credentials) }
 
@@ -25,9 +24,5 @@ RSpec.describe Api::V1::PerformanceDataController, type: :request do
       get '/api/v1/performance_data', headers: headers
       expect(response_json['entries'].count).to eq 5
     end
-
-    it 'returns collection of performance data to current_user'
-      get '/api/v1/performance_data', headers: headers
-      expect(user_two.performance_data).to eq ''
   end
 end
