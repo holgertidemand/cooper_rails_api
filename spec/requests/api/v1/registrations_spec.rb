@@ -36,9 +36,10 @@ RSpec.describe 'User Registration', type: :request do
     end
 
     it 'an already registered email' do
-      FactoryBot.create(:user, email: 'example@craftacademy.se',
-                         password: 'password',
-                         password_confirmation: 'password')
+      factory_bot_create = FactoryBot.create(:user, email: 'example@craftacademy.se',
+                                              password: 'password',
+                                              password_confirmation: 'password')
+      factory_bot_create
 
       post '/api/v1/auth', params: {
           email: 'example@craftacademy.se', password: 'password',
